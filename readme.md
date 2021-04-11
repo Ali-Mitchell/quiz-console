@@ -10,6 +10,6 @@ An interface that demostrates a use of Javascript to create a coding quiz that a
 
 ## Website
 
-## Contribution
-Made with ❤️ by Ali
+## Screenshot of Deployed Site
+<img src="/assets/homework.gif" alt="Deployed Code Quiz"/>
 
