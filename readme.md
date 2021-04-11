@@ -11,5 +11,5 @@ An interface that demostrates a use of Javascript to create a coding quiz that a
 ## Website
 
 ## Screenshot of Deployed Site
-<img src="/assets/homework.gif" alt="Deployed Code Quiz"/>
+
 
