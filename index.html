@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Quiz Console</title>
 </head>
-<body>
+
+<body> 
+    <!-- Local Storage and Timer -->
     <header>
-        <a> high score </a>
-        <div class="timer">
+        <a href="PlaceHolder"> High Score</a>
+        <div>
+            Time:
+            <span id="countdown">60</span>
         </div>
     </header>
-    <article class="quizform">
-        <h1>
-            Heading
+
+    <article id="quizform">
+        <h1 id="quiz-header">
+            Coding Quiz Challenge
         </h1>
+        <div id="quiz-body">
+            <p>
+                Try to answer the coding questions within the time limit. For every wrong answer you will lose 10 seconds! 
+            </p>
+        </div>
 
-        <body>
-
-        </body>
-        
         <Footer>
-
-
+            <button id="input" type="button"> Start Quiz</button>
+            <div id="answer"> </div>
         </Footer>
     </article>
 
-
+    <script src="./assets/java.js"></script>
 
 </body>
 </html>
