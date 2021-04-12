@@ -54,10 +54,40 @@ var startQuiz = function() {
     // remove start button
     startButton.remove();
 
+    runQuiz ();
 };
 
+// function to rotate through the array of questions
+var runQuiz = function() {
+    // if the index of the Array is greater than length of the questionsArr, end quiz
+    if(indexArray === questionArray.length) {
+        play = false;
+    } else {
+        // set variables from object in questionsArray index
+        var question = questionArray[indexArray].question;
+        var options = questionArray[indexArray].options;
+        answer = questionArray[indexArray].answer;
 
-// Run Quiz
+        // change contents of page to match questionArray
+
+        questionHeader.textContent = question;
+        buttons.textContent = "";
+
+        // for each of the 4 options create and append the quiz body
+        for (var i = 0; i < options.length; i++) {
+            var btnEl = document.createElement("button");
+            btnEl.className = "option-list";
+            btnEl.setAttribute("btn-id", [i+1]);
+
+            btnEl.textContent = `${[i+1]}. ${options[i]}`;
+            buttons.appendChild(btnEl);
+        }
+        // increment indexNum to use in next run through
+        indexArray++;
+        // at this point the application will wait for the user to click on the page before continuing
+    }
+};
+
 
 // Check Answer 
 
