@@ -6,7 +6,7 @@ var article = document.querySelector("#quiz-form");
 var questionHeader = document.querySelector("#quiz-header");
 var buttons = document.querySelector("#quiz-body");
 var startButton = document.querySelector("#start-button");
-var answer = document.querySelector("#answer");
+var answerReturn = document.querySelector("#answer-return");
 
 // global variables
 var questionArray = [
@@ -50,7 +50,7 @@ var countdown = function() {
             countdownEl.innerText = timer;
             countdownEl.setAttribute("style", "color: red;");
             clearInterval(timeInterval);
-            // endQuiz();
+            endQuiz();
         }
     }, 1000);
 };
@@ -113,28 +113,56 @@ var optionEvent = function(event) {
     }
 };
 
-console.log(optionEvent);
 
-// function to compare the guess to the actual answer 
+// function to compare the button click to the actual answer 
 var optionValidate = function(optionId) {
     // if validate is correct
-    if(optionId == answer) {
+    if(optionId === answer) {
          // increase correct variable, display correct, run next question
-         timer += 3;
          correct++;
-         answer.innerText = "Correct!";
+         answerReturn.innerText = "Correct!";
          runQuiz();
      // if validate incorrect
      } else {
          // subtract from timer, increase wrong var, display wrong, run next question
          timer -= 10;
          wrong++;
-         answer.innerText = "Wrong!";
+         answerReturn.innerText = "Wrong!";
          runQuiz();
      }
+
 };
 
 
+// function to end the quiz after all questions are answered or the timer runs out
+var endQuiz = function() {
+    // ensure score can't be negative
+    if(timer < 0) {
+        timer = 0;
+        timerEl.innerText = timer;
+    }
+    // update DOM
+    questionEl.removeAttribute("style");
+    questionEl.textContent = "Let's see how you did!";
+    messageEl.innerHTML = `<div>You got ${correct} questions correct and ${wrong} questions wrong.</div><div>Your time score is: ${timer}.</div>`;
+    // create and append a form elements for submitting initials
+    var formEl = document.createElement("form");
+    formEl.setAttribute("id", "initials-form")
+    var inputEl = document.createElement("input");
+    inputEl.setAttribute("type", "text");
+    inputEl.setAttribute("name", "user-initials");
+    inputEl.className = "user-initials";
+    inputEl.setAttribute("placeholder", "Enter Your Initials");
+    formEl.appendChild(inputEl);
+    var submitEl = document.createElement("button");
+    submitEl.className = "btn";
+    submitEl.setAttribute("id", "save-initials");
+    submitEl.setAttribute("type", "submit");
+    submitEl.textContent = "Submit";
+    formEl.appendChild(submitEl);
+    // append the entire form to the messageEl
+    messageEl.appendChild(formEl);
+};
 
 
 // End 
