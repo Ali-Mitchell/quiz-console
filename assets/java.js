@@ -79,6 +79,7 @@ var runQuiz = function() {
             btnEl.className = "option-list";
             btnEl.setAttribute("btn-id", [i+1]);
 
+            // revisit me
             btnEl.textContent = `${[i+1]}. ${options[i]}`;
             buttons.appendChild(btnEl);
         }
@@ -88,8 +89,35 @@ var runQuiz = function() {
     }
 };
 
+// function to read when the user clicks a button 
+var optionEvent = function(event) {
+    // on click, ensure an option button was clicked
+    var targetEl = event.target;
+    if(targetEl.matches(".option-list")) {
+        // get button id of guess, pass to guess compare function
+        var optionId = targetEl.getAttribute("btn-id");
+        optionValidate(optionId);
+    }
+};
 
-// Check Answer 
+console.log(optionEvent);
+
+// function to compare the guess to the actual answer 
+var optionValidate = function(guessId) {
+    // if guessed correct
+    if(optionId === answer) {
+        // subtract from timer, increase wrong var, display wrong, run next question
+        timer -= 10;
+        wrong++;
+        resultEl.innerText = "Wrong!";
+        runQuiz();
+    }
+};
+
+
+console.log(optionValidate);
+
+
 
 // End 
 
@@ -100,6 +128,6 @@ var runQuiz = function() {
 
 // event listener for click of start button
 startButton.addEventListener("click", startQuiz);
-// event listener for click of a guess button during quiz
-// buttons.addEventListener("click", checkAnswer);
+// event listener for click of a option buttons during quiz
+buttons.addEventListener("click", optionValidate);
 // // event listener for submit button
