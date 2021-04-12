@@ -10,11 +10,24 @@ var answer = document.querySelector("#answer");
 
 // global variables
 var questionArray = [
+    {question: "A very usefull tool used during development, debugging and printing content to the debugger is ________.",
+    options: ["javascript","the terminal","for loops","console.log"],
+    answer:"4"},
+
     {question: "Arrays in JavaScript can be used to store ________. ",
     options: ["numbers and strings","other arrays","booleans","all of the above"],
     answer:"4"},
-    {question: "Arrays in JavaScript can be used to store ________. ",
+
+    {question:"The condition in an if /else statement is enclosed with ____.",
     options: ["A","B","C","D"],
+    answer:"4"},
+
+    {question: "String Values must be enclosed within __ when being assigned to variables",
+    options: ["quotes","commas","culry brackets","parenthesis"],
+    answer:"4"},
+
+    {question: "Commonly used data types DO Not include: ",
+    options: ["strings","booleans","alerts","numbers"],
     answer:"4"},
     ]
 
@@ -93,7 +106,7 @@ var runQuiz = function() {
 var optionEvent = function(event) {
     // on click, ensure an option button was clicked
     var targetEl = event.target;
-    if(targetEl.matches(".option-list")) {
+    if(targetEl.matches("button.option-list")) {
         // get button id of guess, pass to guess compare function
         var optionId = targetEl.getAttribute("btn-id");
         optionValidate(optionId);
