@@ -103,19 +103,24 @@ var optionEvent = function(event) {
 console.log(optionEvent);
 
 // function to compare the guess to the actual answer 
-var optionValidate = function(guessId) {
-    // if guessed correct
-    if(optionId === answer) {
-        // subtract from timer, increase wrong var, display wrong, run next question
-        timer -= 10;
-        wrong++;
-        resultEl.innerText = "Wrong!";
-        runQuiz();
-    }
+var optionValidate = function(optionId) {
+    // if validate is correct
+    if(optionId == answer) {
+         // increase correct variable, display correct, run next question
+         timer += 3;
+         correct++;
+         answer.innerText = "Correct!";
+         runQuiz();
+     // if validate incorrect
+     } else {
+         // subtract from timer, increase wrong var, display wrong, run next question
+         timer -= 10;
+         wrong++;
+         answer.innerText = "Wrong!";
+         runQuiz();
+     }
 };
 
-
-console.log(optionValidate);
 
 
 
@@ -129,5 +134,5 @@ console.log(optionValidate);
 // event listener for click of start button
 startButton.addEventListener("click", startQuiz);
 // event listener for click of a option buttons during quiz
-buttons.addEventListener("click", optionValidate);
+buttons.addEventListener("click", optionEvent);
 // // event listener for submit button
