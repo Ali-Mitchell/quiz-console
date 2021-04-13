@@ -134,6 +134,50 @@ var optionValidate = function(optionId) {
 };
 
 
+// function to end the quiz after all questions are answered or the timer runs out
+var endQuiz = function() {
+    // // ensure timer can't be negative
+    if(timer < 0) {
+        timer = 0;
+        countdownEl.innerText = timer;
+    }
+
+    // clear wrong answer message
+    answerReturn.innerText = "";
+    buttons.innerHTML = "<div></div>";
+
+    // create and append a form elements for submitting initials
+
+      // update DOM
+
+      questionHeader.innerHTML = `You got ${correct} questions correct and ${wrong} questions wrong.</div><div>Your had ${timer} seconds remaining`;
+    
+
+    var formEl = document.createElement("form");
+    formEl.setAttribute("id", "initials-form")
+
+    var userInput = document.createElement("input");
+    userInput.setAttribute("type", "text");
+    userInput.setAttribute("name", "user-initials");
+    userInput.className = "user-initials";
+    userInput.setAttribute("placeholder", "Enter Your Initials");
+
+
+    formEl.appendChild(userInput);
+
+    var submitEl = document.createElement("button");
+    submitEl.className = "btn";
+    submitEl.setAttribute("id", "save-initials");
+    submitEl.setAttribute("type", "submit");
+    submitEl.textContent = "Submit";
+
+    console.log(submitEl)
+
+    formEl.appendChild(submitEl);
+    // append the entire form to the messageEl
+    buttons.appendChild(formEl);
+};
+
 
 // End 
 
