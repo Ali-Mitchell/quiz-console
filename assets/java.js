@@ -183,7 +183,35 @@ var endQuiz = function() {
 };
 
 
-// Save High Score
+// function for submit button
+var saveHighScore = function(event) {
+    //Why do we have to do this?
+    event.preventDefault();
+    // only run if the submit button is being clicked
+    var targetEl = event.target;
+    if(targetEl.matches("#save-initials")) {
+        // get the initial entry form element
+        var formEl = document.querySelector(".user-initials");
+        var userInitials = formEl.value
+        // ensure initials have been entered
+        if(!userInitials) {
+            alert("Please enter your initials to submit your score...");
+            return false;
+        // save user input and score to localStorage
+        } else {
+            var highScoreObj = {
+                initials: userInitials,
+                Score: score
+            };
+            // send obj to highScores array
+            highScores.push(highScoreObj);
+            // save highScores array to local storage/ and convert the score into a string use json for javascript object notation*
+            localStorage.setItem("scores", JSON.stringify(highScores));
+            // redirect user to the high score page
+            location.replace("https://sirubu.github.io/code-quiz/scores.html");
+        }
+    }
+};
 
 
 // event listener for click of start button
