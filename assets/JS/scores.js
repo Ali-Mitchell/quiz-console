@@ -22,9 +22,11 @@ var loadScores = function() {
     for(var i = 0; i < highScores.length; i++) {
         var listItemEl = document.createElement("li");
         listItemEl.className = "listed-score";
+        
         var nameEl = document.createElement("div");
         nameEl.className = "score-info";
         nameEl.textContent = `Initials: ${highScores[i].initials}`;
+
         listItemEl.appendChild(nameEl);
         var scoreEl = document.createElement("div");
         scoreEl.className = "score-info";
