@@ -201,7 +201,7 @@ var saveHighScore = function(event) {
         } else {
             var highScoreObj = {
                 initials: userInitials,
-                Score: totalScore
+                score: totalScore
             };
             // send obj to highScores array
             highScores.push(highScoreObj);

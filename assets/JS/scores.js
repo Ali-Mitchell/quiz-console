@@ -15,6 +15,7 @@ var loadScores = function() {
         return false;
     }
     // convert highScores from stringified format to an array of objects
+
     highScores = JSON.parse(highScores);
     console.log(highScores);
 
@@ -22,7 +23,7 @@ var loadScores = function() {
     for(var i = 0; i < highScores.length; i++) {
         var listItemEl = document.createElement("li");
         listItemEl.className = "listed-score";
-        
+
         var nameEl = document.createElement("div");
         nameEl.className = "score-info";
         nameEl.textContent = `Initials: ${highScores[i].initials}`;
@@ -30,7 +31,7 @@ var loadScores = function() {
         listItemEl.appendChild(nameEl);
         var scoreEl = document.createElement("div");
         scoreEl.className = "score-info";
-        scoreEl.textContent = ` Score: ${highScores[i].score}`;
+        scoreEl.textContent = ` score: ${highScores[i].score}`;
         listItemEl.appendChild(scoreEl);
         ulEl.appendChild(listItemEl);
     }
