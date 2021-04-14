@@ -37,8 +37,8 @@ var timer = 59;
 var correct = 0;
 var wrong = 0;
 var play = true;
+var score = 0;
 var highScores = [];
-
 
 // function for countdown 
 var countdown = function() {
@@ -142,15 +142,19 @@ var endQuiz = function() {
         countdownEl.innerText = timer;
     }
 
+//    determines the score by adding time remaining and correct answers - wrong answers.
+    score = timer + correct - wrong
+
     // clear wrong answer message
     answerReturn.innerText = "";
-    buttons.innerHTML = "<div></div>";
+ 
 
     // create and append a form elements for submitting initials
 
       // update DOM
 
-      questionHeader.innerHTML = `You got ${correct} questions correct and ${wrong} questions wrong.</div><div>Your had ${timer} seconds remaining`;
+      questionHeader.innerHTML = "You're score is: " + score;
+      buttons.innerHTML = `You got ${correct} questions correct and ${wrong} questions wrong.</div><div>Your had ${timer} seconds remaining`;
     
 
     var formEl = document.createElement("form");
@@ -169,19 +173,15 @@ var endQuiz = function() {
     submitEl.className = "btn";
     submitEl.setAttribute("id", "save-initials");
     submitEl.setAttribute("type", "submit");
-    submitEl.textContent = "Submit";
+    submitEl.textContent = "Submit Your Score";
 
-    console.log(submitEl)
 
     formEl.appendChild(submitEl);
-    // append the entire form to the messageEl
+
+    // append the entire form to the body of the quiz
     buttons.appendChild(formEl);
 };
 
-
-// End 
-
-// Take User Input
 
 // Save High Score
 
@@ -191,3 +191,4 @@ startButton.addEventListener("click", startQuiz);
 // event listener for click of a option buttons during quiz
 buttons.addEventListener("click", optionEvent);
 // // event listener for submit button
+article.addEventListener("click", saveHighScore);
