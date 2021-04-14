@@ -37,8 +37,8 @@ var timer = 59;
 var correct = 0;
 var wrong = 0;
 var play = true;
-var score = 0;
-var highScores = [];
+var totalScore = 0;
+var highScores = JSON.parse(localStorage.getItem("scores")) || [];
 
 // function for countdown 
 var countdown = function() {
@@ -143,7 +143,7 @@ var endQuiz = function() {
     }
 
 //    determines the score by adding time remaining and correct answers - wrong answers.
-    score = timer + correct - wrong
+    totalScore = timer + correct - wrong
 
     // clear wrong answer message
     answerReturn.innerText = "";
@@ -153,7 +153,7 @@ var endQuiz = function() {
 
       // update DOM
 
-      questionHeader.innerHTML = "You're score is: " + score;
+      questionHeader.innerHTML = "You're score is: " + totalScore;
       buttons.innerHTML = `You got ${correct} questions correct and ${wrong} questions wrong.</div><div>Your had ${timer} seconds remaining`;
     
 
@@ -201,12 +201,14 @@ var saveHighScore = function(event) {
         } else {
             var highScoreObj = {
                 initials: userInitials,
-                Score: score
+                Score: totalScore
             };
             // send obj to highScores array
             highScores.push(highScoreObj);
 
             console.log(highScoreObj);
+            console.log(highScores);
+
             // save highScores array to local storage/ and convert the score into a string use json for javascript object notation*
             localStorage.setItem("scores", JSON.stringify(highScores));
             // redirect user to the high score page
