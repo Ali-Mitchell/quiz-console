@@ -27,12 +27,13 @@ var loadScores = function() {
         var nameEl = document.createElement("div");
         nameEl.className = "score-info";
         nameEl.textContent = `Initials: ${highScores[i].initials}`;
-
         listItemEl.appendChild(nameEl);
+
         var scoreEl = document.createElement("div");
         scoreEl.className = "score-info";
         scoreEl.textContent = ` score: ${highScores[i].score}`;
         listItemEl.appendChild(scoreEl);
+        
         ulEl.appendChild(listItemEl);
     }
 };
