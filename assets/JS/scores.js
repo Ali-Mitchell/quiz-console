@@ -2,8 +2,6 @@
 var ulEl = document.querySelector("#scores");
 // get return button
 var returnEl = document.querySelector("#return-button")
-// get clear scores button
-var clearEl = document.querySelector("#clear-button");
 
 // global variables
 var highScores = [];
@@ -19,6 +17,7 @@ var loadScores = function() {
     // convert highScores from stringified format to an array of objects
     highScores = JSON.parse(highScores);
     console.log(highScores);
+
     // iterate through highScores array and add a list item to the page for each score
     for(var i = 0; i < highScores.length; i++) {
         var listItemEl = document.createElement("li");
@@ -36,20 +35,13 @@ var loadScores = function() {
 };
 
 // function to return to index.html
-var goToIndex = function() {
-    location.replace("https://sirubu.github.io/code-quiz/");
+var returnHome = function() {
+    location.replace("https://ali-mitchell.github.io/quiz-console/");
 };
 
-// function to clear the high scores stored in localStorage
-var clearScores = function() {
-    highScores = [];
-    localStorage.setItem("scores", highScores);
-    location.reload();
-};
 
 // event listener for return button
-returnEl.addEventListener("click", goToIndex);
-// event listener for clear scores button
-clearEl.addEventListener("click", clearScores);
+returnEl.addEventListener("click", returnHome);
+
 
 loadScores();

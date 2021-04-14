@@ -197,7 +197,7 @@ var saveHighScore = function(event) {
         if(!userInitials) {
             alert("Please enter your initials to submit your score...");
             return false;
-        // save user input and score to localStorage
+        // save user input and store to localStorage
         } else {
             var highScoreObj = {
                 initials: userInitials,
@@ -205,6 +205,8 @@ var saveHighScore = function(event) {
             };
             // send obj to highScores array
             highScores.push(highScoreObj);
+
+            console.log(highScoreObj);
             // save highScores array to local storage/ and convert the score into a string use json for javascript object notation*
             localStorage.setItem("scores", JSON.stringify(highScores));
             // redirect user to the high score page
