@@ -208,7 +208,7 @@ var saveHighScore = function(event) {
             // save highScores array to local storage/ and convert the score into a string use json for javascript object notation*
             localStorage.setItem("scores", JSON.stringify(highScores));
             // redirect user to the high score page
-            location.replace("https://ali-mitchell.github.io/quiz-console/higschores.html");
+            location.replace("https://ali-mitchell.github.io/quiz-console/highscores.html");
         }
     }
 };
