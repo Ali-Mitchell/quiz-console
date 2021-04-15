@@ -16,5 +16,8 @@ https://ali-mitchell.github.io/quiz-console/
 ## Screenshot of Deployed Site
 ![image](https://user-images.githubusercontent.com/79877350/114818653-6077ce00-9d79-11eb-9385-7bb1a4ac34b1.png)
 
+## Acknowlegments
+I referenced the great work of one of my team mates for guidance on this project. Colby Shroeder's deployed page https://sirubu.github.io/code-quiz/ 
+
 
 
