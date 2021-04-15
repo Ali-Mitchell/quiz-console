@@ -14,7 +14,7 @@ A quiz interface where a user is given a prompt to answer a question with option
 https://ali-mitchell.github.io/quiz-console/
 
 ## Screenshot of Deployed Site
-
+![image](https://user-images.githubusercontent.com/79877350/114818653-6077ce00-9d79-11eb-9385-7bb1a4ac34b1.png)
 
 
 
