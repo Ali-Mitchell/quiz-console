@@ -1,6 +1,6 @@
 # Quiz Console
 
-##Notes for TA's 
+## Notes for TA's 
 I am just checking on this after I submitted it and the live site is not updating despite all the correct code/ finsihed product being pushed up 12 hours ago. I am troubleshooting the issue now. All of the code in my repo is correct to what I want submitted for my grade, I just need to understand the discrepancies between the git hub page and the rep. 
 
 ## Purpose
