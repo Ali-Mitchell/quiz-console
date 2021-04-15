@@ -37,12 +37,20 @@ header div {
     
 }
 
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 article h1 {
     padding: 40px 20px 40px 20px;
-    margin: 0px;
+    margin: 30px;
     font-size: 30px;
-    border:solid #A2D9CE 2px;
+    border:solid #A2D9CE 3px;
     border-radius: 10px;
+    width: 80%;
+    text-align: center;
 }
 
 article p {
@@ -62,4 +70,51 @@ footer button {
     border: solid #F5B041 2px;
     letter-spacing: 1px;
     font-weight: bold;
+}
+
+
+.option-list {
+    display: flex;
+    width: 200px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    padding: 15px 20px;
+    background:  #A2D9CE;
+    border-radius: 12px;
+    font-size: medium;
+
+}
+
+#save-initials.btn {
+    display: flex;
+    width: 200px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    padding: 15px;
+    background:  #A2D9CE;
+    border-radius: 12px;
+    font-size: medium;
+    text-indent: 20px;
+   
+}
+
+.user-initials {
+    width: 200px;
+    height: 30px;
+    border-radius: 12px;
+    text-align: center;
+   
+}
+
+#initials-form {
+    padding: 20px;
+}
+
+#answer-return {
+    margin: 40px;
+    font-size: x-large;
 }

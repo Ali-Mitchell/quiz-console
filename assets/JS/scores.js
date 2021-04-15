@@ -26,12 +26,12 @@ var loadScores = function() {
 
         var nameEl = document.createElement("div");
         nameEl.className = "score-info";
-        nameEl.textContent = `Initials: ${highScores[i].initials}`;
+        nameEl.innerHTML = `<b>Player:</b> ${highScores[i].initials}`;
         listItemEl.appendChild(nameEl);
 
         var scoreEl = document.createElement("div");
         scoreEl.className = "score-info";
-        scoreEl.textContent = ` score: ${highScores[i].score}`;
+        scoreEl.innerHTML = ` <b> score:</b> ${highScores[i].score}`;
         listItemEl.appendChild(scoreEl);
         
         ulEl.appendChild(listItemEl);
